@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company - Enterprise IT Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        #home {
+            margin-top: 80px;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            margin-top: 1.5rem;
+        }
+
+        .service-details h4 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* About Section */
+        #about {
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Your Company</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Enterprise Solutions Built on Expertise</h1>
+            <h2>Transform your business infrastructure through custom .NET development, strategic hardware deployment, and seamless enterprise software integration</h2>
+            <p>In today's rapidly evolving digital landscape, your technology infrastructure is the backbone of your business operations. We specialize in delivering robust, scalable solutions that align with your strategic objectives.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>C# / .NET Development</h3>
+                <p>We architect and build enterprise-grade applications using the latest .NET technologies, including .NET 8, ASP.NET Core, and Blazor.</p>
+                <div class="service-details">
+                    <h4>Custom Application Development</h4>
+                    <p>Our development approach emphasizes clean architecture, maintainable code, and scalable solutions that grow with your business.</p>
+                    <h4>Legacy System Modernization</h4>
+                    <p>We specialize in migrating legacy codebases to modern .NET platforms and implementing contemporary DevOps practices.</p>
+                    <h4>API Development & Integration</h4>
+                    <p>We design RESTful APIs and microservices that enable seamless communication between your systems.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Hardware Deployment</h3>
+                <p>From infrastructure planning to complete installation, we handle the physical deployment of your IT infrastructure with precision.</p>
+                <div class="service-details">
+                    <h4>Infrastructure Planning</h4>
+                    <p>We design infrastructure solutions that balance performance, reliability, and cost-effectiveness.</p>
+                    <h4>Server & Network Installation</h4>
+                    <p>Our technicians handle complete data center configurations with proper installation and security protocols.</p>
+                    <h4>Endpoint Management</h4>
+                    <p>We streamline deployment of desktop systems, laptops, and mobile devices across your organization.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Enterprise Software Deployment</h3>
+                <p>We manage the complete implementation lifecycle of business-critical applications with minimal disruption to your operations.</p>
+                <div class="service-details">
+                    <h4>Implementation & Configuration</h4>
+                    <p>Deploying ERP systems, CRM platforms, and specialized software with meticulous planning and execution.</p>
+                    <h4>Migration & Upgrade Services</h4>
+                    <p>Comprehensive migration strategies that preserve data integrity and maintain business continuity.</p>
+                    <h4>Training & Change Management</h4>
+                    <p>Hands-on training programs and ongoing support to ensure successful adoption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p style="text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem;">Founded on the principle that exceptional IT solutions require both technical mastery and deep business understanding, our consultancy has grown by consistently delivering results that matter.</p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Approach</h3>
+                    <p>Technology should serve your business goals, not the other way around. We begin every engagement by listening carefully to understand your objectives, constraints, and long-term vision.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Expertise</h3>
+                    <p>Our team brings years of hands-on experience across the entire technology stack. We stay current with emerging technologies while maintaining deep expertise in proven enterprise platforms.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Commitment</h3>
+                    <p>We view client relationships as long-term partnerships. Many of our clients have worked with us for years, relying on us as trusted advisors for strategic technology decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>Ready to discuss your next IT initiative? We'd welcome the opportunity to learn about your challenges and explore how we can help.</p>
+            <p>Whether you're planning a major system overhaul or need expert guidance on a specific technical question, our team is here to provide the insights and solutions you need.</p>
+            
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:info@yourcompany.com">info@yourcompany.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p><strong>Location:</strong> Your City, State</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
